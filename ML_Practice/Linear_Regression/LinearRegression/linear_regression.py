@@ -1,5 +1,5 @@
 import numpy as np
-from utils.features import prepare_for_training
+from ML_Practice.Linear_Regression.utils.features.prepare_for_training import prepare_for_training
 
 class LinearRegression:
 
