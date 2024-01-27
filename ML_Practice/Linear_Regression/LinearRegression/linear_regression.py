@@ -1,5 +1,6 @@
 import numpy as np
-from ML_Practice.Linear_Regression.utils.features.prepare_for_training import prepare_for_training
+import sys
+sys.path.append('/Users/yunbo/Documents/GitHub/Machine-learning-learning-and-code-practice/ML_Practice/Linear_Regression/utils/features')
 
 class LinearRegression:
 
