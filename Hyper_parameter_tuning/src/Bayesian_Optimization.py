@@ -13,7 +13,7 @@ from skopt import gp_minimize
 
 
 
-def optimize(param,param_names,x,y):
+def optimize(params,param_names,x,y):
     params = dict(zip(param_names,params))
     model = ensemble.RandomForestClassifier(**params)
     kf = model_selection.StratifiedKFold(n_splits=5)
@@ -45,7 +45,7 @@ if __name__ == "__main__":
         space.Integer(3,15,name="max_depth"),
         space.Integer(100,600,name="n_estimators"),
         space.Categorical(["gini","entropy"],name="criterion"),
-        space.Real(0.01,1,prior="uniform",name="max_features")
+        space.Real(0.01,1,prior="uniform",name="max_features"),
     ]
 
     param_names = [
@@ -55,7 +55,7 @@ if __name__ == "__main__":
         "max_features"
     ]
 
-    optimizatin_function = partial(optimize,param_names=param_names, x=X, y=y)
+    optimization_function = partial(optimize,param_names=param_names, x=X, y=y)
 
     result = gp_minimize(
         optimization_function,
@@ -65,9 +65,6 @@ if __name__ == "__main__":
         verbose=10
     )
 
-    print(
-        dict(
-            para_names,
-            result.x
-        )
-    )                     
+    print(dict(zip(param_names, result.x)))         
+    
+               
