@@ -61,7 +61,7 @@ if __name__ == "__main__":
         optimization_function,
         dimensions = param_space,
         n_calls=15,
-        n_radom_starts=10,
+        n_random_starts=10,
         verbose=10
     )
 
